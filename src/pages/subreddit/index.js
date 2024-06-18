@@ -65,9 +65,11 @@ class Subreddit extends React.Component {
       })
       .then(threads => {
         threads.forEach(thread => {
-          if(!thread.removed){
-            thread.removed = isThreadDeleted(thread)
-          }
+          if(thread.hasOwnProperty('removed') && thread.removed === true) {
+            // Do nothing
+          }else {
+            thread.removed = isThreadDeleted(thread);
+          } 
           thread.selftext = ''
           thread.url = thread.permalink
         })
