@@ -113,8 +113,6 @@ export const getParentComments = (threadID, commentID, parents) => {
 }
 
 export const isThreadDeleted = thread => {
-  if (thread.removed == true) return true
-
   const isTopic = thread?.title != null
   if (thread.author == null) return true //No author
 
