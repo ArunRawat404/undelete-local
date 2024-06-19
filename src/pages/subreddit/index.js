@@ -65,8 +65,8 @@ class Subreddit extends React.Component {
       })
       .then(threads => {
         threads.forEach(thread => {
-          if(thread.hasOwnProperty('removed') && thread.removed === true) {
-            // Do nothing
+          if(thread?.removed === true) {
+            // skip removed evaluation if we established that the thread is removed already
           }else {
             thread.removed = isThreadDeleted(thread);
           } 
